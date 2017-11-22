@@ -27,15 +27,15 @@ resultFile.close()
 for i in range (len(files)): 
     print("iteration : {}".format(i))
     img_rgb = cv2.imread(files[i])
-    img_rgb = threshold.threshold(img_rgb)
+    img_rgb = threshold(img_rgb)
     
-    hand_contour = get_contour.get_contour(img_rgb)    
+    hand_contour = get_contour(img_rgb)    
         
-    fourier_descriptors,freqs = get_descriptors.get_descriptors(hand_contour)
+    fourier_descriptors,freqs = get_descriptors(hand_contour)
     
-    selected_descriptors, selected_freqs = truncate.truncate(fourier_descriptors, freqs, kmax)
+    selected_descriptors, selected_freqs = truncate(fourier_descriptors, freqs, kmax)
     
-    normalized_descriptors = normalize.normalize(selected_descriptors, kmax)
+    normalized_descriptors = normalize(selected_descriptors, kmax)
     
     all_descriptors.append(normalized_descriptors)
     
