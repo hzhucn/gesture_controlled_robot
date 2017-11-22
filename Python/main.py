@@ -26,7 +26,9 @@ resultFile.close()
     
 for i in range (len(files)): 
     print("iteration : {}".format(i))
-    img_rgb = cv2.imread(files[i])
+    img_bgr = cv2.imread(files[i])
+    img_rgb = cv2.cvtColor(img_bgr,cv2.COLOR_BGR2RGB)
+
     img_rgb = threshold(img_rgb)
     
     hand_contour = get_contour(img_rgb)    
