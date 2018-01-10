@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 from toolbox.fourier_descriptors import truncate, normalize, get_descriptors
 from toolbox.preprocess import threshold, get_contour
-import cmath
-import math
 import cv2
 
 from os import listdir
@@ -18,10 +16,11 @@ open('../dataset.csv', 'w').close()
 resultFile = open("../dataset.csv",'a')
 name_of_inputs_to_store = 'move_type,'
 for k in range(kmax+1): 
-    name_of_inputs_to_store += 'd_{}'.format(k)
+    name_of_inputs_to_store += 'd_{},'.format(k)
 
-for k in range(kmax): 
-    name_of_inputs_to_store += 'd_{}'.format(-(kmax-k))
+for k in range(kmax-1): 
+    name_of_inputs_to_store += 'd_{},'.format(-(kmax-k))
+name_of_inputs_to_store += 'd_{}'.format(-(kmax-(kmax-1)))
 
 resultFile.write(name_of_inputs_to_store + "\n")
 resultFile.close()
