@@ -11,9 +11,9 @@ files = [path+f for f in listdir(path) if isfile(join(path, f))]
 
 
 all_descriptors = []
-kmax = 20
-open('../dataset.csv', 'w').close()
-resultFile = open("../dataset.csv",'a')
+kmax = 25
+open('../dataset_norm.csv', 'w').close()
+resultFile = open("../dataset_norm.csv",'a')
 name_of_inputs_to_store = 'move_type,'
 for k in range(kmax+1): 
     name_of_inputs_to_store += 'd_{},'.format(k)
@@ -43,12 +43,13 @@ for i in range (len(files)):
     
     # Open File
     
-    resultFile = open("../dataset.csv",'a')
+    resultFile = open("../dataset_norm.csv",'a')
 
     
     # Write data to file
     descriptors_to_store = files[i].split('/')[-1].split('-')[0]+','
-    for desc in normalized_descriptors:
-        descriptors_to_store += '{},'.format(abs(desc))
+    for i_desc in range(len(normalized_descriptors)-1):
+        descriptors_to_store += '{},'.format(abs(normalized_descriptors[i_desc]))
+    descriptors_to_store += '{}'.format(abs(normalized_descriptors[len(normalized_descriptors)-1]))
     resultFile.write(descriptors_to_store + "\n")
     resultFile.close()

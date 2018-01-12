@@ -11,16 +11,17 @@ files = [path+f for f in listdir(path) if isfile(join(path, f))]
 
 
 all_descriptors = []
-kmax = 20
+kmax = 25
 open('../dataset.csv', 'w').close()
 resultFile = open("../dataset.csv",'a')
 name_of_inputs_to_store = 'move_type,'
 for k in range(kmax+1): 
     name_of_inputs_to_store += 'descr_number_{}_x,descr_number_{}_y,'.format(k,k)
 
-for k in range(kmax): 
+for k in range(kmax-1): 
     name_of_inputs_to_store += 'descr_number_{}_x,descr_number_{}_y,'.format(-(kmax-k),-(kmax-k))
-
+name_of_inputs_to_store += 'descr_number_{}_x,descr_number_{}_y,'.format(-(kmax-(kmax-1)),-(kmax-(kmax-1)))
+ 
 resultFile.write(name_of_inputs_to_store + "\n")
 resultFile.close()
     
@@ -48,7 +49,8 @@ for i in range (len(files)):
     
     # Write data to file
     descriptors_to_store = files[i].split('/')[-1].split('-')[0]+','
-    for desc in normalized_descriptors:
-        descriptors_to_store += '{},{},'.format(desc.real ,desc.imag)
+    for i_desc in range(len(normalized_descriptors)-1):
+        descriptors_to_store += '{},{},'.format(normalized_descriptors[i_desc].real ,normalized_descriptors[i_desc].imag)
+    descriptors_to_store += '{},{}'.format(normalized_descriptors[len(normalized_descriptors)-1].real ,normalized_descriptors[len(normalized_descriptors)-1].imag)
     resultFile.write(descriptors_to_store + "\n")
     resultFile.close()
