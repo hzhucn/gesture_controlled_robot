@@ -1,0 +1,9 @@
+<launch>
+<group ns="khepera_robot">
+	<node pkg="khepera_command" type="video_camera_node" respawn="true"/>
+	       <node pkg="khepera_command" type="robot_command_node"/>
+	       <node pkg="khepera_command" type="image_preprocessing_node"/>
+
+	</group>
+
+</launch>

@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- rosrun teleop_twist_keyboard teleop_twist_keyboard.py-->
+
+  <arg name="koala_dns" default="193.48.224.240" />
+  <arg name="wheel_port" default="4100" />
+  <arg name="camera_port" default="4101" />
+  <arg name="video_port" default="4102" />
+
+
+  <node name="koala_video" pkg="kteams_node" type="koala_camera_node" respawn="true" args="$(arg koala_dns) $(arg video_port)"/>
+
+  <node name="koala_camera_position" pkg="kteams_node" type="koala_camera_position_node" respawn="true" args="$(arg koala_dns) $(arg camera_port)"/>
+
+  <node name="koala_wheels" pkg="kteams_node" type="koala_wheels_node" respawn="true" args="$(arg koala_dns) $(arg wheel_port)"/>
+
+</launch>

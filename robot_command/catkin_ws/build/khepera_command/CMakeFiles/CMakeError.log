@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f113d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f113d.dir/build.make CMakeFiles/cmTC_f113d.dir/build
+make[1] : on entre dans le répertoire « /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_f113d.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_f113d.dir/CheckSymbolExists.c.o   -c "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp/CheckSymbolExists.c"
+Linking C executable cmTC_f113d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f113d.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_f113d.dir/CheckSymbolExists.c.o  -o cmTC_f113d -rdynamic 
+CMakeFiles/cmTC_f113d.dir/CheckSymbolExists.c.o : Dans la fonction « main » :
+CheckSymbolExists.c:(.text+0x16) : référence indéfinie vers « pthread_create »
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f113d.dir/build.make:97 : la recette pour la cible « cmTC_f113d » a échouée
+make[1]: *** [cmTC_f113d] Erreur 1
+make[1] : on quitte le répertoire « /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp »
+Makefile:126 : la recette pour la cible « cmTC_f113d/fast » a échouée
+make: *** [cmTC_f113d/fast] Erreur 2
+
+File /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f84ea/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f84ea.dir/build.make CMakeFiles/cmTC_f84ea.dir/build
+make[1] : on entre dans le répertoire « /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_f84ea.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f84ea.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f84ea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f84ea.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f84ea.dir/CheckFunctionExists.c.o  -o cmTC_f84ea -rdynamic -lpthreads 
+/usr/bin/ld : ne peut trouver -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f84ea.dir/build.make:97 : la recette pour la cible « cmTC_f84ea » a échouée
+make[1]: *** [cmTC_f84ea] Erreur 1
+make[1] : on quitte le répertoire « /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeTmp »
+Makefile:126 : la recette pour la cible « cmTC_f84ea/fast » a échouée
+make: *** [cmTC_f84ea/fast] Erreur 2
+
+

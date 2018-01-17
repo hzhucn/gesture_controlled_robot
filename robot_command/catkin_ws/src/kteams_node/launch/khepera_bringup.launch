@@ -1,0 +1,16 @@
+<launch>
+
+  <node pkg="joy" type="joy_node" name="joy_node"/>
+  
+  <rosparam command="load" file="$(find kteams_node)/config/joy_teleop.yaml"/>
+  <node pkg="joy_teleop" type="joy_teleop.py" name="joy_teleop"/>
+
+    
+  <arg name="khepera_dns" default="192.168.50.64" />
+  <arg name="khepera_port" default="4100" />
+
+  <node name="khepera_wheels" pkg="kteams_node" type="khepera_wheels_node" respawn="true" args="$(arg khepera_dns) $(arg khepera_port)"/>
+
+  
+
+</launch>
