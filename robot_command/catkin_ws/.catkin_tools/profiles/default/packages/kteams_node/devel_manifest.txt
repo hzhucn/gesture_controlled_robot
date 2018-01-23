@@ -1,9 +1,0 @@
-kteams_node
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/lib/kteams_node/khepera_wheels_node" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/lib/kteams_node/khepera_wheels_node"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/lib/kteams_node/koala_camera_node" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/lib/kteams_node/koala_camera_node"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/lib/kteams_node/koala_camera_position_node" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/lib/kteams_node/koala_camera_position_node"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/lib/kteams_node/koala_odom_node" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/lib/kteams_node/koala_odom_node"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/lib/kteams_node/koala_wheels_node" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/lib/kteams_node/koala_wheels_node"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/lib/pkgconfig/kteams_node.pc" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/lib/pkgconfig/kteams_node.pc"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/share/kteams_node/cmake/kteams_nodeConfig-version.cmake" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/share/kteams_node/cmake/kteams_nodeConfig-version.cmake"
-"/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/.private/kteams_node/share/kteams_node/cmake/kteams_nodeConfig.cmake" "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/devel/share/kteams_node/cmake/kteams_nodeConfig.cmake"

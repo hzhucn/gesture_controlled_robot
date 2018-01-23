@@ -1,8 +1,0 @@
-prefix=/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/install
-
-Name: kteams_node
-Description: Description of kteams_node
-Version: 0.1.0
-Cflags: 
-Libs: -L/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/install/lib 
-Requires: roscpp std_msgs geometry_msgs sensor_msgs image_transport camera_info_manager tf kteams_driver

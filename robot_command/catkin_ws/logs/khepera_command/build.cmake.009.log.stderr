@@ -1,4 +1,0 @@
-[31m[1mCMake Error[0m at /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/src/khepera_command/CMakeLists.txt:10 (catkin_python_setup):
-  Unknown CMake command "catkin_python_setup".
-
-

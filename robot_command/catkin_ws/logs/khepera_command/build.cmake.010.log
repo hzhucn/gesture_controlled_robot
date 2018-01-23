@@ -1,8 +1,0 @@
-Not searching for unused variables given on the command line.
-[31m[1mCMake Error[0m at /media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/src/khepera_command/CMakeLists.txt:10 (catkin_python_setup):
-  Unknown CMake command "catkin_python_setup".
-
-
-[36m--[0m Configuring incomplete, errors occurred!
-See also "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeOutput.log".
-See also "/media/laure/HP Data/ROBOT_IMAGE_CONTROL/robot_command/catkin_ws/build/khepera_command/CMakeFiles/CMakeError.log".
