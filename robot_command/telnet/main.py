@@ -17,7 +17,7 @@ def batch_prediction(all_descriptors, models):
     for clf in models: 
         predictions.append(clf.predict_proba(all_descriptors))
     
-    prediction_proba = sum(predictions) / 3
+    prediction_proba = sum(predictions) / len(models)
     prediction = [ classes[np.argmax(x)] for x in prediction_proba]
     
     predicted_class_occurences = {'STOP':list(prediction).count('STOP'),
@@ -49,8 +49,7 @@ class telnetlib_connection:
         except Exception as e:
             print("Impossible de se connecter: {}".format(e))
             sys.exit()
-
-    
+            
     def write_prediction(self,prediction):
         command = create_command_from_prediction(prediction)
         try:
@@ -64,7 +63,7 @@ class telnetlib_connection:
 if __name__ == '__main__':
     # Init the connection on khepera
     ip, port = 'khepera2.smart.metz.supelec.fr', 4100
-    #tn = telnetlib_connection(ip,port)    
+    tn = telnetlib_connection(ip,port)    
     
     cap = cv2.VideoCapture(0)
     cv2.startWindowThread()
@@ -79,7 +78,7 @@ if __name__ == '__main__':
     clf_fnn = joblib.load(path_to_model+'model_fnn.pkl')
     clf_knn = joblib.load(path_to_model+'model_knn.pkl')
     clf_svm = joblib.load(path_to_model+'model_svm.pkl')
-    models = [clf_fnn, clf_knn, clf_svm]
+    models = [clf_fnn]
     
     classes = clf_fnn.classes_
     while True:
@@ -108,7 +107,7 @@ if __name__ == '__main__':
                     if(len(all_descriptors)==number_of_images):
                         prediction = batch_prediction(all_descriptors, models)
                         print(prediction)
-                        #tn.write_prediction(prediction)
+                        tn.write_prediction(prediction)
                         all_descriptors = []
             
     # When everything done, release the capture
