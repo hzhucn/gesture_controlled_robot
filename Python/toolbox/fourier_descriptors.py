@@ -89,7 +89,9 @@ def normalize(descriptors, kmax):
     #len(descriptors)-1 correspond au dernier element de la liste 
 
     if(np.abs(descriptors[1])< np.abs(descriptors[-1])):
-        for i in range(kmax):        
+        if len(descriptors) == 0:
+            return []
+        for i in range(int(kmax)):        
             # for real part 
             desc_temp_real = descriptors.real[i+1]
             descriptors.real[i+1] = descriptors.real[-1-i]

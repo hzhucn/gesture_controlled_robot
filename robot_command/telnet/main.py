@@ -28,6 +28,7 @@ def batch_prediction(all_descriptors, models):
     most_probable_class = max(predicted_class_occurences.keys(), 
                               key=(lambda k: predicted_class_occurences[k]))
     return most_probable_class
+
 def create_command_from_prediction(prediction):
     command = None
     if(prediction ==  "RIGHT") :
@@ -40,6 +41,15 @@ def create_command_from_prediction(prediction):
         command = "D,100,100"  
     
     return command
+
+def is_hand(image,centroids):
+    seuil = 3
+    check_if_hand = False
+    for center in centroids :
+        distance = np.linalg.norm(center-image)
+        if(distance<seuil):
+            check_if_hand = True
+    return check_if_hand
 
 class telnetlib_connection:
     
@@ -65,7 +75,9 @@ if __name__ == '__main__':
     ip, port = 'khepera2.smart.metz.supelec.fr', 4100
     tn = telnetlib_connection(ip,port)    
     
-    cap = cv2.VideoCapture(0)
+    cam_number = sys.argv[1] if len(sys.argv)>1 else 0
+    
+    cap = cv2.VideoCapture(int(cam_number))
     cv2.startWindowThread()
     
     ramp_frames = 10
@@ -79,8 +91,11 @@ if __name__ == '__main__':
     clf_knn = joblib.load(path_to_model+'model_knn.pkl')
     clf_svm = joblib.load(path_to_model+'model_svm.pkl')
     models = [clf_fnn]
-    
     classes = clf_fnn.classes_
+    
+    clf_kmeans = joblib.load(path_to_model+'model_kmeans.pkl')
+    kmeans_centroids = clf_kmeans.cluster_centers_
+
     while True:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -90,18 +105,22 @@ if __name__ == '__main__':
                     ret, frame = cap.read()
                     
                     # Pre processing of the image
-                    processed_image = threshold(frame)
+                    processed_image = threshold(frame, 15)
                     
+                    hand_contour,thresh = get_contour(processed_image)
+                    image_plot = thresh.copy()
+                    cv2.drawContours(image_plot, [hand_contour], -1, (0,255,0), 3)
                     # Plot the processed image in real time
-                    cv2.imshow('Processed Image', processed_image)
+                    cv2.imshow('Processed Image', image_plot)
                     
                     while len(all_descriptors)!=number_of_images:
-                        hand_contour,thresh = get_contour(processed_image)
-                        cv2.imshow('threshold Image', thresh)
+                        
                         fourier_descriptors,freqs = get_descriptors(hand_contour)
                         selected_descriptors, selected_freqs = truncate(fourier_descriptors, freqs, kmax)
                         normalized_descriptors = normalize(selected_descriptors, kmax)
-                        all_descriptors.append(abs(normalized_descriptors))
+                        
+                        if(is_hand(normalized_descriptors, kmeans_centroids)):
+                            all_descriptors.append(abs(normalized_descriptors))
                         
                     
                     if(len(all_descriptors)==number_of_images):

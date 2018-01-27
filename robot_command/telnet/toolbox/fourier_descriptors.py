@@ -39,9 +39,10 @@ def truncate(descriptors, freqs, kmax):
     
         return selected_descriptors  , selected_freqs
     '''
-    # Truncate between 0 and k 
-    freqs_pos = [x for x in freqs if x>0]
-    freqs_neg = [x for x in freqs if x<0]
+    # Truncate between 0 and k
+    if len(freqs)>0:
+        freqs_pos = [x for x in freqs if x>0]
+        freqs_neg = [x for x in freqs if x<0]
     nb_tot_pos = len(freqs_pos)
     if kmax > len(freqs_neg):
         # TODO : Definir ce qu'on doit faire p.e mettre des zeros, ... etc
@@ -66,7 +67,7 @@ def truncate(descriptors, freqs, kmax):
         freq_pos = freqs.copy()[:kmax+1]
         freqs_neg = list(reversed(freqs.copy()[nb_tot_pos:][:-kmax-1:-1]))
         selected_freqs = np.concatenate((freq_pos, freqs_neg))
-
+        
     return selected_descriptors, selected_freqs
 
 def normalize(descriptors, kmax):
@@ -89,7 +90,7 @@ def normalize(descriptors, kmax):
     #len(descriptors)-1 correspond au dernier element de la liste 
 
     if(np.abs(descriptors[1])< np.abs(descriptors[-1])):
-        for i in range(kmax):        
+        for i in range(int(kmax)):        
             # for real part 
             desc_temp_real = descriptors.real[i+1]
             descriptors.real[i+1] = descriptors.real[-1-i]

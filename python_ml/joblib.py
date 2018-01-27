@@ -1,6 +1,7 @@
 from sklearn.externals import joblib
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.cluster import KMeans
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 import pandas
@@ -17,6 +18,10 @@ X_train, X_test, y_train, y_test = train_test_split(features.values, labels.valu
 knn = KNeighborsClassifier(n_neighbors=4, weights = 'distance')
 knn.fit(X_train,y_train)
 joblib.dump(knn, 'model_knn.pkl', protocol=2, compress=1) 
+
+kmeans = KMeans(n_clusters=6, random_state=0, max_iter=10000)
+kmeans.fit(X_train)
+joblib.dump(kmeans, 'model_kmeans.pkl', protocol=2, compress=1) 
 
 
 mlp = MLPClassifier(solver='lbfgs',
