@@ -15,7 +15,8 @@ def threshold(img_bgr, seuil=None):
     im_ycrcb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2YCR_CB)
     skin_ycrcb_mint = np.array((0, 133, 77))
     skin_ycrcb_maxt = np.array((255, 173, 127))
-    skin_ycrcb = cv2.inRange(im_ycrcb, skin_ycrcb_mint, skin_ycrcb_maxt)
+    mask = cv2.inRange(im_ycrcb, skin_ycrcb_mint, skin_ycrcb_maxt)
+    skin_ycrcb = cv2.bitwise_and(image, image, mask = mask)
     
     return skin_ycrcb
 
