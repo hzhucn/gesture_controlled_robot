@@ -92,10 +92,9 @@ if __name__ == '__main__':
     clf_svm = joblib.load(path_to_model+'model_svm.pkl')
     models = [clf_fnn]
     classes = clf_fnn.classes_
-    
     clf_kmeans = joblib.load(path_to_model+'model_kmeans.pkl')
     kmeans_centroids = clf_kmeans.cluster_centers_
-
+        
     while True:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -108,26 +107,27 @@ if __name__ == '__main__':
                     processed_image = threshold(frame, 15)
                     
                     hand_contour,thresh = get_contour(processed_image)
-                    image_plot = thresh.copy()
-                    cv2.drawContours(image_plot, [hand_contour], -1, (0,255,0), 3)
-                    # Plot the processed image in real time
-                    cv2.imshow('Processed Image', image_plot)
+                    if hand_contour is not None:
+                        image_plot = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)
+                        cv2.drawContours(image_plot, [hand_contour], -1, (0,255,0), 3)
+                        # Plot the processed image in real time
+                        cv2.imshow('Processed Image', image_plot)
                     
-                    while len(all_descriptors)!=number_of_images:
-                        
-                        fourier_descriptors,freqs = get_descriptors(hand_contour)
-                        selected_descriptors, selected_freqs = truncate(fourier_descriptors, freqs, kmax)
-                        normalized_descriptors = normalize(selected_descriptors, kmax)
-                        
-                        if(is_hand(normalized_descriptors, kmeans_centroids)):
-                            all_descriptors.append(abs(normalized_descriptors))
-                        
-                    
-                    if(len(all_descriptors)==number_of_images):
-                        prediction = batch_prediction(all_descriptors, models)
-                        print(prediction)
-                        tn.write_prediction(prediction)
-                        all_descriptors = []
+                        while len(all_descriptors)!=number_of_images:
+                            
+                            fourier_descriptors,freqs = get_descriptors(hand_contour)
+                            selected_descriptors, selected_freqs = truncate(fourier_descriptors, freqs, kmax)
+                            normalized_descriptors = normalize(selected_descriptors, kmax)
+                            
+                            if(is_hand(normalized_descriptors, kmeans_centroids)):
+                                all_descriptors.append(abs(normalized_descriptors))
+                            
+                                
+                        if(len(all_descriptors)==number_of_images):
+                            prediction = batch_prediction(all_descriptors, models)
+                            print(prediction)
+                            tn.write_prediction(prediction)
+                            all_descriptors = []
             
     # When everything done, release the capture
     cap.release()

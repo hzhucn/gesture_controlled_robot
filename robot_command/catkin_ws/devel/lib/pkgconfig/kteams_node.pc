@@ -1,0 +1,1 @@
+/home/laure/Documents/catkin_ws/devel/.private/kteams_node/lib/pkgconfig/kteams_node.pc

@@ -1,0 +1,4 @@
+khepera_simulation
+/home/laure/Documents/catkin_ws/devel/.private/khepera_simulation/lib/pkgconfig/khepera_simulation.pc /home/laure/Documents/catkin_ws/devel/lib/pkgconfig/khepera_simulation.pc
+/home/laure/Documents/catkin_ws/devel/.private/khepera_simulation/share/khepera_simulation/cmake/khepera_simulationConfig.cmake /home/laure/Documents/catkin_ws/devel/share/khepera_simulation/cmake/khepera_simulationConfig.cmake
+/home/laure/Documents/catkin_ws/devel/.private/khepera_simulation/share/khepera_simulation/cmake/khepera_simulationConfig-version.cmake /home/laure/Documents/catkin_ws/devel/share/khepera_simulation/cmake/khepera_simulationConfig-version.cmake

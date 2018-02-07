@@ -1,0 +1,8 @@
+prefix=/home/laure/Documents/catkin_ws/devel/.private/p3dx_driver
+
+Name: p3dx_driver
+Description: Description of p3dx_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/laure/Documents/catkin_ws/devel/.private/p3dx_driver/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/laure/Documents/catkin_ws/install
+
+Name: khepera_command
+Description: Description of khepera_command
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/laure/Documents/catkin_ws/install/lib 
+Requires: 

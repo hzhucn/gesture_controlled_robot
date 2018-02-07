@@ -1,0 +1,8 @@
+prefix=/home/laure/Documents/catkin_ws/devel/.private/kteams_driver
+
+Name: kteams_driver
+Description: Description of kteams_driver
+Version: 0.1.0
+Cflags: -I/home/laure/Documents/catkin_ws/src/kteams_driver/include
+Libs: -L/home/laure/Documents/catkin_ws/devel/.private/kteams_driver/lib -lkteams_driver
+Requires: 

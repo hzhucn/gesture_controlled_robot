@@ -1,0 +1,7 @@
+[35m[1mScanning dependencies of target kteams_driver[0m
+[ 20%] [32mBuilding CXX object src/CMakeFiles/kteams_driver.dir/koala_wheels.cpp.o[0m
+[ 40%] [32mBuilding CXX object src/CMakeFiles/kteams_driver.dir/koala_video.cpp.o[0m
+[ 60%] [32mBuilding CXX object src/CMakeFiles/kteams_driver.dir/koala_camera_position.cpp.o[0m
+[ 80%] [32mBuilding CXX object src/CMakeFiles/kteams_driver.dir/khepera_wheels_ir.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library /home/laure/Documents/catkin_ws/devel/.private/kteams_driver/lib/libkteams_driver.so[0m
+[100%] Built target kteams_driver

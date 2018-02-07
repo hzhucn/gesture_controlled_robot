@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/laure/Documents/catkin_ws/devel/.private/khepera_simulation/setup.sh

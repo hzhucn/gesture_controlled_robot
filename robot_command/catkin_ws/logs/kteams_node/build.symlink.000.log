@@ -1,0 +1,8 @@
+Symlinking /home/laure/Documents/catkin_ws/devel/lib/kteams_node/khepera_wheels_node
+Symlinking /home/laure/Documents/catkin_ws/devel/lib/kteams_node/koala_camera_node
+Symlinking /home/laure/Documents/catkin_ws/devel/lib/kteams_node/koala_odom_node
+Symlinking /home/laure/Documents/catkin_ws/devel/lib/kteams_node/koala_camera_position_node
+Symlinking /home/laure/Documents/catkin_ws/devel/lib/kteams_node/koala_wheels_node
+Symlinking /home/laure/Documents/catkin_ws/devel/lib/pkgconfig/kteams_node.pc
+Symlinking /home/laure/Documents/catkin_ws/devel/share/kteams_node/cmake/kteams_nodeConfig.cmake
+Symlinking /home/laure/Documents/catkin_ws/devel/share/kteams_node/cmake/kteams_nodeConfig-version.cmake

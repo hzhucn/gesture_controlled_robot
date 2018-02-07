@@ -1,0 +1,6 @@
+devel_space: /home/laure/Documents/catkin_ws/devel
+install: false
+install_space: /home/laure/Documents/catkin_ws/install
+profile: default
+source_space: /home/laure/Documents/catkin_ws/src
+workspace: /home/laure/Documents/catkin_ws
