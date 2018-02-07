@@ -1,1 +1,0 @@
-/home/laure/Documents/catkin_ws/devel/.private/khepera_command/lib/pkgconfig/khepera_command.pc

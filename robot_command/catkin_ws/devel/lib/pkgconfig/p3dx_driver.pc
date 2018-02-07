@@ -1,1 +1,0 @@
-/home/laure/Documents/catkin_ws/devel/.private/p3dx_driver/lib/pkgconfig/p3dx_driver.pc

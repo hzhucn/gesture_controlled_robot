@@ -1,1 +1,0 @@
-/home/laure/Documents/catkin_ws/devel/.private/kteams_node/share/kteams_node/cmake/kteams_nodeConfig-version.cmake

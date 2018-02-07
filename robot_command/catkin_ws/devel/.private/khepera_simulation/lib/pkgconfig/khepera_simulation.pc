@@ -1,8 +1,0 @@
-prefix=/home/laure/Documents/catkin_ws/devel/.private/khepera_simulation
-
-Name: khepera_simulation
-Description: Description of khepera_simulation
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/laure/Documents/catkin_ws/devel/.private/khepera_simulation/lib 
-Requires: 
